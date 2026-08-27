@@ -1,20 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { databaseStart } from "./db/db";
+import HomeScreen from "./screens/HomeScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import ListTask from "./assets/listTask";
+import Gear from "./assets/gear";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: { backgroundColor: "black", borderTopWidth: 0 },
+      }}
+    >
+      <Tab.Screen
+        name="Planner"
+        component={HomeScreen}
+        options={{ tabBarIcon: ListTask }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={HomeScreen}
+        options={{ tabBarIcon: Gear }}
+      />
+    </Tab.Navigator>
+  );
+}
+function RootStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="MyTabs"
+        component={MyTabs}
+      />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <RootStack />
+    </NavigationContainer>
+  );
+}
