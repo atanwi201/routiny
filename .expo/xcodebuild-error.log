@@ -1,0 +1,7 @@
+** BUILD FAILED **
+
+
+The following build commands failed:
+	PhaseScriptExecution [CP-User]\ Generate\ app.config\ for\ prebuilt\ Constants.manifest /Users/aryan/Library/Developer/Xcode/DerivedData/routiny-aekbmwtszfmzyqgqoejzhkpjheed/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/EXConstants.build/Script-46EB2E0001ABB0.sh (in target 'EXConstants' from project 'Pods')
+	Building workspace routiny with scheme routiny and configuration Debug
+(2 failures)
