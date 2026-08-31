@@ -28,6 +28,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     color: colors.tertiary,
   },
+  dividerBottom: {
+    backgroundColor: colors.secondary,
+  },
+  dividerTop: {
+    backgroundColor: colors.primary,
+    height: 1,
+  },
 });
 
 export default styles;

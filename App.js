@@ -12,6 +12,7 @@ import { databaseStart } from "./db/db";
 import EditTemplate from "./screens/ProfileScreens/editTemplate";
 import PrivacyPolicyScreen from "./screens/ProfileScreens/privacyPolicy";
 import { Button } from "react-native";
+import SeeTemplate from "./screens/ProfileScreens/seeTemplate";
 
 const Stack = createNativeStackNavigator();
 
@@ -75,8 +76,9 @@ function RootStack() {
       <Stack.Screen
         options={{
           title: "Login",
-          headerStyle: { backgroundColor: colors.background },
-          headerTintColor: colors.primary,
+          headerShown: false,
+          //headerStyle: { backgroundColor: colors.background },
+          //headerTintColor: colors.primary,
           headerBackTitleVisible: true,
           headerBackTitle: "Back",
         }}
@@ -103,7 +105,7 @@ function RootStack() {
           headerBackTitle: "Back",
         }}
         name="EditTemplate"
-        component={EditTemplate}
+        component={SeeTemplate}
       />
     </Stack.Navigator>
   );

@@ -1,6 +1,6 @@
 export default function numberPronoun(num) {
   const safeNum = Number(num);
-
+  //prepare for 22nd or 31st those still use the first 3 combinations
   if (!Number.isInteger(safeNum)) return "th";
   if (safeNum % 100 >= 11 && safeNum % 100 <= 13) return "th";
 
