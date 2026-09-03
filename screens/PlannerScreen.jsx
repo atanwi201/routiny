@@ -56,7 +56,8 @@ export default function PlannerScreen() {
         {tasks.length > 0 ? (
           tasks.map((task, index) => (
             <Text key={task?.id ?? index} style={styles.taskText}>
-              {task?.event_name ?? "Task"}
+              {task?.event_name ?? "Task"} | {task?.start_time ?? "Time"} -{" "}
+              {task?.end_time ?? "Time"}
             </Text>
           ))
         ) : (
@@ -69,7 +70,7 @@ export default function PlannerScreen() {
             console.log("new Tasky");
           }}
         >
-          New Task
+          + New Task
         </Text>
       </ScrollView>
     </SafeAreaView>

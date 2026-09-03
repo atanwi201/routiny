@@ -20,10 +20,11 @@ export async function databaseStart() {
       movable_end TEXT
     );
   `);
-
   console.log("database created");
+  await db.execAsync("DELETE FROM template;");
+  console.log("All data deleted");
   await db.execAsync(
-    "INSERT INTO template (weekday, event_name, start_time, end_time, notification, notification_time, enabled, movable, movable_start, movable_end) VALUES (1, 'Gimnasio', '07:00', '08:30', 1, '06:45', 1, 0, null, null), (1, 'Trabajo', '09:00', '17:00', 0, null, 1, 1, '08:00', '19:00'), (2, 'Reunión', '10:00', '11:00', 1, '09:50', 1, 0, null, null), (3, 'Compra', '18:00', '19:30', 0, null, 1, 1, '17:00', '21:00');",
+    "INSERT INTO template (weekday, event_name, start_time, end_time, notification, notification_time, enabled, movable, movable_start, movable_end) VALUES (1, 'Gimnasio', '07:00', '08:30', 1, '06:45', 1, 0, null, null), (1, 'Trabajo', '09:00', '17:00', 0, null, 1, 1, '08:00', '19:00'), (2, 'Reunión', '10:00', '11:00', 1, '09:50', 1, 0, null, null), (3, 'shopping', '18:00', '19:30', 0, null, 1, 1, '17:00', '21:00');",
   );
   console.log("dummy data loaded");
 }
@@ -60,7 +61,6 @@ export async function getTodayTasks(date) {
   if (!date || typeof date.day !== "number") {
     return [];
   }
-
   return db.getAllAsync("SELECT * FROM template WHERE weekday = ?", [date.day]);
 }
 export async function getTemplateTasks() {

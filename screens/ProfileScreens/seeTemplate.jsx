@@ -57,7 +57,9 @@ export default function SeeTemplate() {
   return (
     <SafeAreaView style={styles.screenStyle}>
       <ScrollView>
-        <Text>this component still is in development.</Text>
+        <Text style={styles.mainText}>
+          this component still is in development.
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
